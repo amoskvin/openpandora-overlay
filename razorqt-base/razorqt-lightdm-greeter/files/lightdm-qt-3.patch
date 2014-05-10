@@ -1,0 +1,16 @@
+--- razorqt-lightdm-greeter/CMakeLists.txt.orig	2014-03-30 13:28:21.910148692 -0400
++++ razorqt-lightdm-greeter/CMakeLists.txt	2014-03-30 13:31:19.690148776 -0400
+@@ -24,7 +24,12 @@
+ # check for new version
+ include(FindPkgConfig)
+ message(STATUS "Checking for lightdm-qt...")
+-pkg_check_modules(LIGHTDM_QT liblightdm-qt-2)
++pkg_check_modules(LIGHTDM_QT liblightdm-qt-3)
++# or lightdm v2 if the version 3 is not found
++if (NOT LIGHTDM_QT_FOUND)
++    message(STATUS "lightdm3 for Qt is not found. Trying to find v2")
++    pkg_check_modules(LIGHTDM_QT liblightdm-qt-2)
++endif()
+ # or lightdm v1 if the version 2 is not found
+ if (NOT LIGHTDM_QT_FOUND)
+     message(STATUS "lightdm2 for Qt is not found. Trying to find v1")
