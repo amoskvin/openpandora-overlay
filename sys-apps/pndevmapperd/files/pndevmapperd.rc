@@ -1,0 +1,23 @@
+#!/sbin/runscript
+# Copyright 1999-2014 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
+depend() {
+	after udev
+}
+
+start() {
+	ebegin "Starting ${SVCNAME}"
+	/usr/bin/pndevmapperd -d
+	eend $?
+}
+
+stop() {
+	ebegin "Stopping ${SVCNAME}"
+	start-stop-daemon --stop --quiet \
+		--pidfile /var/run/pndevmapperd.pid --exec /usr/bin/pndevmapperd
+	local ret=$?
+	rm -f /var/run/crond.pid
+	eend ${ret}
+}

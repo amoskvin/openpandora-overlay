@@ -1,0 +1,37 @@
+From 3e1ad01047777564194b11a186a929d618a7c3c1 Mon Sep 17 00:00:00 2001
+From: Alec Moskvin <alecm@gmx.com>
+Date: Sun, 30 Mar 2014 17:41:13 -0400
+Subject: [PATCH 2/2] pndevmapperd: create a pid file
+
+---
+ apps/pndevmapperd.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+diff --git apps/pndevmapperd.c apps/pndevmapperd.c
+index e2169d3..cc7725d 100644
+--- apps/pndevmapperd.c
++++ apps/pndevmapperd.c
+@@ -244,7 +244,7 @@ int main ( int argc, char *argv[] ) {
+   if ( g_daemon_mode ) {
+ 
+     // set a CWD somewhere else
+-    chdir ( "/tmp" );
++    i = chdir ( "/" );
+ 
+     // detach from terminal
+     if ( ( i = fork() ) < 0 ) {
+@@ -252,6 +252,11 @@ int main ( int argc, char *argv[] ) {
+       exit ( i );
+     }
+     if ( i ) {
++      FILE *fp;
++      if ((fp = fopen("/var/run/pndevmapperd.pid", "w")) != NULL) {
++        fprintf(fp, "%d\n", i);
++        fclose(fp);
++      }
+       exit ( 0 ); // exit parent
+     }
+     setsid();
+-- 
+1.8.4.4
+
