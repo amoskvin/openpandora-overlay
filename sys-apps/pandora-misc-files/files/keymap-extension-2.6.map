@@ -1,0 +1,98 @@
+# Source: git://git.openpandora.org/openembedded.git
+# Commit: 873193c61dbd85da41a10eb14ac3c7d2313a8b8c
+
+#     1,     2,       4,   8
+# Shift, AltGr, Control, Alt
+keymaps 0,1,4,8
+
+# Special keys.
+
+keycode  29 = Control
+keycode  56 = Alt
+#keycode  464 = AltGr
+
+# 	      Default 		Shift
+
+keycode  51 = comma            	less
+keycode  52 = period		greater
+
+# Number Bar
+
+keycode  2 = one                section
+keycode  3 = two                braceleft
+keycode  4 = three              braceright
+keycode  5 = four               asciitilde
+keycode  6 = five               percent
+keycode  7 = six                asciicircum
+keycode  8 = seven              ampersand
+keycode  9 = eight              asterisk
+keycode  10 = nine              bracketleft
+keycode  11 = zero              bracketright
+keycode  14 = BackSpace         Remove
+
+# Fn stuff
+
+# F13 - Fn-J
+keycode  183 = apostrophe
+# F14 - Fn-B
+keycode  184 = bar
+# F15 - Fn-Y
+keycode  185 = underscore
+# F16 - Fn-V
+keycode  186 = numbersign
+# F17 - Fn-T
+keycode  187 = exclam
+# F18 - Fn-K
+keycode  188 = sterling
+# F19 - Fn-S
+keycode  189 = quotedbl
+# F20 - Fn-W
+keycode  190 = at
+# F21 - Fn-.
+keycode  191 = colon
+# F22 - Fn-N
+keycode  192 = dollar
+# F23 - Fn-M
+keycode  193 = currency
+# Fn-L
+keycode  124 = yen
+# Fn-X
+keycode  214 = question
+# Fn-E
+keycode  26 = parenleft
+# Fn-R
+keycode  27 = parenright
+
+# Listing these here in short notation gives us modifier keys
+
+keycode  16 = +q
+keycode  17 = +w
+keycode  18 = +e
+keycode  19 = +r
+keycode  20 = +t
+keycode  21 = +y
+keycode  22 = +u
+keycode  23 = +i
+keycode  24 = +o
+keycode  25 = +p
+keycode  30 = +a
+keycode  31 = +s
+keycode  32 = +d
+keycode  33 = +f
+keycode  34 = +g
+keycode  35 = +h
+keycode  36 = +j
+keycode  37 = +k
+keycode  38 = +l
+keycode  44 = +z
+keycode  45 = +x
+keycode  46 = +c
+keycode  47 = +v
+keycode  48 = +b
+keycode  49 = +n
+keycode  50 = +m
+
+# DPad - URDL
+
+alt keycode 106 = Incr_Console
+alt keycode 105 = Decr_Console

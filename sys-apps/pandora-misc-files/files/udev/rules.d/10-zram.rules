@@ -1,0 +1,2 @@
+KERNEL=="zram0", SUBSYSTEM=="block", DRIVER=="", ACTION=="add", ATTR{disksize}=="0", ATTR{disksize}="67108864", RUN+="/sbin/mkswap $env{DEVNAME}"
+

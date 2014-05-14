@@ -1,0 +1,31 @@
+#!/bin/sh
+
+. "${PM_FUNCTIONS}"
+
+ensure_not_charging()
+{
+	current_now="$(cat /sys/class/power_supply/bq27500-0/current_now)"
+
+	if [ $current_now -gt 0 ]; then
+		#don't suspend while unit is charging
+		inhibit "unit is charging"
+	fi
+}
+
+ensure_sgx_not_in_use()
+{
+	# can't suspend while SGX is in use due to bugs
+	# (prevents low power states and potential lockup)
+	if fuser -s /dev/pvrsrvkm; then
+		inhibit "sgx in use"
+	fi
+}
+
+case "$1" in
+	hibernate|suspend)
+		ensure_sgx_not_in_use
+		ensure_not_charging
+		;;
+	*) exit $NA
+		;;
+esac

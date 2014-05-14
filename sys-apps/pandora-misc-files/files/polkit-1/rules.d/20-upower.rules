@@ -1,0 +1,11 @@
+// Rule installed by sys-apps/pandora-misc-files
+
+polkit.addRule(function(action, subject) {
+	if (
+		subject.local == true && (
+			action.id == "org.freedesktop.upower.hibernate" ||
+			action.id == "org.freedesktop.upower.suspend"
+		) {
+		return "yes";
+	}
+});

@@ -1,0 +1,12 @@
+// Rule installed by sys-apps/pandora-misc-files
+
+polkit.addRule(function(action, subject) {
+	if (
+		subject.local == true && (
+			action.id == "org.freedesktop.udisks.filesystem-mount" ||
+			action.id == "org.freedesktop.udisks.drive-detach" ||
+			action.id == "org.freedesktop.udisks.drive-eject"
+		) {
+		return "yes";
+	}
+});

@@ -1,0 +1,3 @@
+SUSPEND_MODULES="g_zero g_audio g_ether g_serial g_midi gadgetfs g_file_storage g_mass_storage g_printer g_cdc g_multi g_hid g_dbgp g_nokia g_webcam g_ncm g_acm_ms ehci_hcd bridgedriver"
+
+HOOK_BLACKLIST="98video-quirk-db-handler"

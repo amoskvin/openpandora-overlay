@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=WPA GUI
+TryExec=wpa_gui
+Exec=wpa_gui -t
+Type=Application
+Version=1.0
+X-Razor-Need-Tray=true

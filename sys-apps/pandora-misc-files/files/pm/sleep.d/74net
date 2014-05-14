@@ -1,0 +1,50 @@
+#!/bin/sh
+
+. "${PM_FUNCTIONS}"
+
+suspend_net()
+{
+	hcistate="$(hciconfig hci0 | grep DOWN)"
+	if [ -n "${hcistate}" ]; then
+		savestate hcistate "down"
+	else
+		savestate hcistate "up"
+		hciconfig hci0 down
+	fi
+
+	wlstate="$(grep -m1 ^wl1251 /proc/modules)"
+	if [ -z "${wlstate}" ]; then
+		savestate wlstate "down"
+	else
+		savestate wlstate "up"
+		ifconfig wlan0 down
+		modunload wl1251_sdio
+		modunload wl1251
+	fi
+}
+
+resume_net()
+{
+	hcistate="$(restorestate hcistate)"
+	if [ "${hcistate}" = up ]; then
+		hciconfig hci0 up pscan
+	fi
+
+	wlstate="$(restorestate wlstate)"
+	if [ "${wlstate}" = up ]; then
+		modprobe wl1251 wl1251_sdio
+		# TODO: restore LEDs
+		#/etc/init.d/wl1251-init start
+	fi
+}
+
+case "$1" in
+	hibernate|suspend)
+		suspend_net
+		;;
+	thaw|resume)
+		resume_net
+		;;
+	*) exit $NA
+		;;
+esac

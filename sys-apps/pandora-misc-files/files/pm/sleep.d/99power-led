@@ -1,0 +1,25 @@
+#!/bin/sh
+
+set_brightness()
+{
+	#TODO: read config
+	case "$1" in
+		low) brightness=16
+			;;
+		high) brightness=255
+			;;
+	esac
+
+	echo -n "$brightness" > /sys/class/leds/pandora\:\:power/brightness
+}
+
+case "$1" in
+        hibernate|suspend)
+                set_brightness low
+                ;;
+        thaw|resume)
+                set_brightness high
+                ;;
+        *) exit $NA
+                ;;
+esac
