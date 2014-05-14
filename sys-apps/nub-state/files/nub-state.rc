@@ -1,0 +1,22 @@
+#!/sbin/runscript
+# Copyright 1999-2014 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
+description="Utility to save and restore Pandora nub state"
+
+depend() {
+	need localmount
+}
+
+start() {
+	einfo "Loading nub state ..."
+	nub-state -r
+	eend $?
+}
+
+stop() {
+	einfo "Saving nub state ..."
+	nub-state -s
+	eend $?
+}
