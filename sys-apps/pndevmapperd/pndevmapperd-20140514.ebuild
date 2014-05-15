@@ -10,13 +10,13 @@ DESCRIPTION="Daemon that executes scripts on hardware events"
 HOMEPAGE="http://git.openpandora.org/cgi-bin/gitweb.cgi?p=pandora-libraries.git"
 
 if [[ ${PV} == "99999999" ]] ; then
-    inherit git-2
-    EGIT_REPO_URI="git://git.openpandora.org/pandora-libraries.git"
-    KEYWORDS=""
+	inherit git-2
+	EGIT_REPO_URI="git://git.openpandora.org/pandora-libraries.git"
+	KEYWORDS=""
 else
-    SRC_URI="http://gentoo.openpandora.org/source/snapshots/pandora-libraries-${PV}.tar.xz"
+	SRC_URI="http://gentoo.openpandora.org/source/snapshots/pandora-libraries-${PV}.tar.xz"
 	RESTRICT="primaryuri"
-    KEYWORDS="arm"
+	KEYWORDS="arm"
 fi
 
 LICENSE="LGPL"

@@ -11,13 +11,16 @@ HOMEPAGE="http://www.libsdl.org/"
 if [[ ${PV} = *9999 ]]; then
 	inherit git-2
 	EGIT_REPO_URI="git://notaz.gp2x.de/~notaz/sdl_omap.git"
+	KEYWORDS=""
 else
-	SRC_URI=""
+	SRC_URI="http://gentoo.openpandora.org/source/snapshots/${P}.tar.bz2"
+	RESTRICT="primaryuri"
+	KEYWORDS="arm"
 fi
 
 LICENSE="LGPL-2.1"
 SLOT="0"
-KEYWORDS="alpha amd64 arm hppa ia64 ~mips ppc ppc64 sh sparc x86 ~x86-fbsd"
+
 # WARNING:
 # if you disable the audio, video, joystick use flags or turn on the custom-cflags use flag
 # in USE and something breaks, you pick up the pieces.  Be prepared for

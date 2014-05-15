@@ -7,7 +7,7 @@ EAPI=5
 inherit toolchain-funcs
 
 DESCRIPTION="Utility to save and restore nub configuration"
-HOMEPAGE="http://openpandora.org"
+HOMEPAGE="http://gentoo.openpandora.org"
 SRC_URI=""
 
 LICENSE="MIT"

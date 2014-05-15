@@ -7,8 +7,9 @@ EAPI=5
 inherit qt4-r2
 
 DESCRIPTION="First run wizard"
-HOMEPAGE="http://example.org"
-SRC_URI="${P}.tar.gz"
+HOMEPAGE="http://gentoo.openpandora.org"
+SRC_URI="http://gentoo.openpandora.org/source/${P}.tar.gz"
+RESTRICT="primaryuri"
 
 LICENSE="GPL-2"
 SLOT="0"

@@ -9,13 +9,13 @@ HOMEPAGE="http://git.openpandora.org/cgi-bin/gitweb.cgi?p=openpandora.oe.git;a=t
 SRC_URI=""
 
 if [[ ${PV} == "99999999" ]] ; then
-    inherit git-2
-    EGIT_REPO_URI="git://git.openpandora.org/openpandora.oe.git"
-    KEYWORDS=""
+	inherit git-2
+	EGIT_REPO_URI="git://git.openpandora.org/openpandora.oe.git"
+	KEYWORDS=""
 else
-    SRC_URI="http://gentoo.openpandora.org/source/snapshots/${P}.tar.xz"
+	SRC_URI="http://gentoo.openpandora.org/source/snapshots/${P}.tar.xz"
 	RESTRICT="primaryuri"
-    KEYWORDS="arm"
+	KEYWORDS="arm"
 fi
 
 LICENSE="LGPL"
