@@ -4,7 +4,7 @@
 
 EAPI="5"
 
-inherit toolchain-funcs
+inherit eutils toolchain-funcs
 
 DESCRIPTION="Daemon that executes scripts on hardware events"
 HOMEPAGE="http://git.openpandora.org/cgi-bin/gitweb.cgi?p=pandora-libraries.git"
